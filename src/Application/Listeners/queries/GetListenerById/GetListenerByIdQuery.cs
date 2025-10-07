@@ -1,0 +1,31 @@
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using CleanArchitecture.Application.Common.Interfaces;
+namespace CleanArchitecture.Application.Listeners.Queries.GetListenerById;
+
+public record GetListenerByIdQuery(int Id) : IRequest<ListenerDto>;
+
+public class GetListenerByIdQueryHandler : IRequestHandler<GetListenerByIdQuery, ListenerDto?>
+{
+    private readonly IApplicationDbContext _context;
+
+    public GetListenerByIdQueryHandler(IApplicationDbContext context)
+    {
+        _context = context;
+    }
+
+    public async Task<ListenerDto?> Handle(GetListenerByIdQuery request, CancellationToken cancellationToken)
+    {
+        return await _context.Listeners
+            .AsNoTracking()
+            .Where(l => l.Id == request.Id)
+            .Select(l => new ListenerDto
+            {
+                Id = l.Id,
+                Name = l.Name,
+                Username = l.Username.Value,
+                Email = l.Email.Value
+            })
+            .FirstOrDefaultAsync(cancellationToken);
+    }
+}
