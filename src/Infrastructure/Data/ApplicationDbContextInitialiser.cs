@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using CleanArchitecture.Domain.ValueObjects;
 
 namespace CleanArchitecture.Infrastructure.Data;
 
@@ -43,7 +44,7 @@ public class ApplicationDbContextInitialiser
     {
         try
         {
-            await _context.Database.MigrateAsync();
+            await _context.Database.EnsureCreatedAsync();
         }
         catch (Exception ex)
         {
@@ -67,43 +68,147 @@ public class ApplicationDbContextInitialiser
 
     public async Task TrySeedAsync()
     {
-        // Default roles
-        var administratorRole = new IdentityRole(Roles.Administrator);
-
-        if (_roleManager.Roles.All(r => r.Name != administratorRole.Name))
+        // Ensure roles exist
+        var requiredRoles = new[] { Roles.Administrator, Roles.Artist, Roles.Listener };
+        foreach (var roleName in requiredRoles)
         {
-            await _roleManager.CreateAsync(administratorRole);
+            if (!await _roleManager.RoleExistsAsync(roleName))
+            {
+                await _roleManager.CreateAsync(new IdentityRole(roleName));
+            }
         }
 
-        // Default users
+        // Default admin user
         var administrator = new ApplicationUser { UserName = "administrator@localhost", Email = "administrator@localhost" };
 
         if (_userManager.Users.All(u => u.UserName != administrator.UserName))
         {
             await _userManager.CreateAsync(administrator, "Administrator1!");
-            if (!string.IsNullOrWhiteSpace(administratorRole.Name))
+            await _userManager.AddToRoleAsync(administrator, Roles.Administrator);
+        }
+
+        // Seed TodoList left as an example ;)
+        // if (!_context.TodoLists.Any())
+        // {
+        //     _context.TodoLists.Add(new TodoList
+        //     {
+        //         Title = "Todo List",
+        //         Items =
+        //         {
+        //             new TodoItem { Title = "Make a todo list 📃" },
+        //             new TodoItem { Title = "Check off the first item ✅" },
+        //             new TodoItem { Title = "Realise you've already done two things on the list! 🤯"},
+        //             new TodoItem { Title = "Reward yourself with a nice, long nap 🏆" },
+        //         }
+        //     });
+
+        //     await _context.SaveChangesAsync();
+        // }
+
+        // Seed Artist user + Artist entity
+        if (!_context.Artists.Any())
+        {
+            var artistUser = new ApplicationUser
             {
-                await _userManager.AddToRolesAsync(administrator, new [] { administratorRole.Name });
+                UserName = "testartist",
+                Email = "artist@example.com"
+            };
+            var artistUserResult = await _userManager.CreateAsync(artistUser, "Artist1!");
+            if (artistUserResult.Succeeded)
+            {
+                // Assign to Artist role
+                await _userManager.AddToRoleAsync(artistUser, Roles.Artist);
+
+                var artist = new Artist
+                {
+                    UserId = artistUser.Id,
+                    Name = "Test Artist",
+                    Username = new Username("testartist"),
+                    Email = new EmailAddress("artist@example.com"),
+                    Bio = "A test artist.",
+                    PayoutTier = new PayoutTier("Bronze")
+                };
+                _context.Artists.Add(artist);
+                await _context.SaveChangesAsync();
             }
         }
 
-        // Default data
-        // Seed, if necessary
-        if (!_context.TodoLists.Any())
+        // Seed Song
+        if (!_context.Songs.Any())
         {
-            _context.TodoLists.Add(new TodoList
+            var artist = _context.Artists.First();
+            var songs = new List<Song>
             {
-                Title = "Todo List",
-                Items =
+                new Song
                 {
-                    new TodoItem { Title = "Make a todo list 📃" },
-                    new TodoItem { Title = "Check off the first item ✅" },
-                    new TodoItem { Title = "Realise you've already done two things on the list! 🤯"},
-                    new TodoItem { Title = "Reward yourself with a nice, long nap 🏆" },
+                    Title = "Test Song",
+                    ArtistId = artist.Id,
+                    ListenedTimes = 0,
+                    Created = DateTimeOffset.UtcNow,
+                    LastModified = DateTimeOffset.UtcNow
+                },
+                new Song
+                {
+                    Title = "Second Song",
+                    ArtistId = artist.Id,
+                    ListenedTimes = 5,
+                    Created = DateTimeOffset.UtcNow,
+                    LastModified = DateTimeOffset.UtcNow
+                },
+                new Song
+                {
+                    Title = "Third Song",
+                    ArtistId = artist.Id,
+                    ListenedTimes = 2,
+                    Created = DateTimeOffset.UtcNow,
+                    LastModified = DateTimeOffset.UtcNow
+                },
+                new Song
+                {
+                    Title = "Fourth Song",
+                    ArtistId = artist.Id,
+                    ListenedTimes = 10,
+                    Created = DateTimeOffset.UtcNow,
+                    LastModified = DateTimeOffset.UtcNow
                 }
-            });
-
+            };
+            _context.Songs.AddRange(songs);
             await _context.SaveChangesAsync();
+        }
+
+
+        // Seed Listener user + Listener entity
+        if (!_context.Listeners.Any())
+        {
+            var listenerUser = new ApplicationUser
+            {
+                UserName = "testlistener",
+                Email = "listener@example.com"
+            };
+            var listenerUserResult = await _userManager.CreateAsync(listenerUser, "Listener1!");
+            if (listenerUserResult.Succeeded)
+            {
+                // Assign to Listener role
+                await _userManager.AddToRoleAsync(listenerUser, Roles.Listener);
+
+                var listener = new Listener
+                {
+                    UserId = listenerUser.Id,
+                    Name = "Test Listener",
+                    Username = new Username("testlistener"),
+                    Email = new EmailAddress("listener@example.com"),
+                };
+                _context.Listeners.Add(listener);
+                await _context.SaveChangesAsync();      
+
+                // Assign favourite songs after both listener and songs are seeded
+                var firstSong = _context.Songs.FirstOrDefault();
+                if (firstSong != null)
+                {
+                    listener.FavouriteSongs.Add(firstSong);
+                    await _context.SaveChangesAsync();
+                }
+            }
         }
     }
 }
