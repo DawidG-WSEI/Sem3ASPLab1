@@ -1,11 +1,11 @@
 using AutoMapper;
-using FinalLabProject.Domain.Entities;
-using FinalLabProject.Application.Artists.Queries;
-using FinalLabProject.Application.Songs.Queries;
-using FinalLabProject.Application.Listeners.Queries;
-using FinalLabProject.Domain.ValueObjects;
+using CleanArchitecture.Domain.Entities;
+using CleanArchitecture.Application.Artists.Queries;
+using CleanArchitecture.Application.Songs.Queries;
+using CleanArchitecture.Application.Listeners.Queries;
+using CleanArchitecture.Domain.ValueObjects;
 
-namespace FinalLabProject.Application.Common.Mappings;
+namespace CleanArchitecture.Application.Common.Mappings;
 
 public class DomainMappingProfile : Profile
 {

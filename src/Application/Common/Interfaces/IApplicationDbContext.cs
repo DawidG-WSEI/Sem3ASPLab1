@@ -4,9 +4,11 @@ namespace CleanArchitecture.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
-    DbSet<TodoList> TodoLists { get; }
+    DbSet<Artist> Artists { get; }
 
-    DbSet<TodoItem> TodoItems { get; }
+    DbSet<Listener> Listeners { get; }
+
+    DbSet<Song> Songs { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

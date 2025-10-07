@@ -1,4 +1,3 @@
-using CleanArchitecture.Application.Common.Interfaces;
 using CleanArchitecture.Domain.Entities;
 using CleanArchitecture.Domain.Events.ArtistEvents;
 using CleanArchitecture.Domain.Exceptions.Common;
