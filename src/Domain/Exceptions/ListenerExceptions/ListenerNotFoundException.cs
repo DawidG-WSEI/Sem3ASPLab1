@@ -1,0 +1,11 @@
+using System;
+
+namespace CleanArchitectureProject.Domain.Exceptions.ListenerExceptions;
+
+public class ListenerNotFoundException : Exception
+{
+    public ListenerNotFoundException(int listenerId)
+        : base($"Listener with ID {listenerId} was not found.")
+    {
+    }
+}
