@@ -1,9 +1,9 @@
-using CleanArchitectureProject.Application.Common.Interfaces;
-using CleanArchitectureProject.Domain.Entities;
-using CleanArchitectureProject.Domain.Events.ArtistEvents;
+using CleanArchitecture.Application.Common.Interfaces;
+using CleanArchitecture.Domain.Entities;
+using CleanArchitecture.Domain.Events.ArtistEvents;
 using MediatR;
 
-namespace CleanArchitectureProject.Application.Artists.Commands.DeleteArtist;
+namespace CleanArchitecture.Application.Artists.Commands.DeleteArtist;
 
 public record DeleteArtistCommand(int Id) : IRequest;
 

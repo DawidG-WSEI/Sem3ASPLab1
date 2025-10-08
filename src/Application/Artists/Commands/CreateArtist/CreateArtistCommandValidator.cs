@@ -1,7 +1,7 @@
 using FluentValidation;
-using CleanArchitectureProject.Domain.ValueObjects;
+using CleanArchitecture.Domain.ValueObjects;
 
-namespace CleanArchitectureProject.Application.Artists.Commands.CreateArtist;
+namespace CleanArchitecture.Application.Artists.Commands.CreateArtist;
 
 public class CreateArtistCommandValidator : AbstractValidator<CreateArtistCommand>
 {

@@ -1,10 +1,10 @@
-using CleanArchitectureProject.Application.Common.Interfaces;
-using CleanArchitectureProject.Domain.Entities;
-using CleanArchitectureProject.Domain.Events.ArtistEvents;
-using CleanArchitectureProject.Domain.ValueObjects;
+using CleanArchitecture.Application.Common.Interfaces;
+using CleanArchitecture.Domain.Entities;
+using CleanArchitecture.Domain.Events.ArtistEvents;
+using CleanArchitecture.Domain.ValueObjects;
 using MediatR;
 
-namespace CleanArchitectureProject.Application.Artists.Commands.UpdateArtistPayoutTier;
+namespace CleanArchitecture.Application.Artists.Commands.UpdateArtistPayoutTier;
 
 public record UpdateArtistPayoutTierCommand : IRequest
 {

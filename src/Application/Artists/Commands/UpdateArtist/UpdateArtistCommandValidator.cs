@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace CleanArchitectureProject.Application.Artists.Commands.UpdateArtist;
+namespace CleanArchitecture.Application.Artists.Commands.UpdateArtist;
 
 public class UpdateArtistCommandValidator : AbstractValidator<UpdateArtistCommand>
 {

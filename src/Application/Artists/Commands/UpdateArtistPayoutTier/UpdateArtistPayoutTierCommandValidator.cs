@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace CleanArchitectureProject.Application.Artists.Commands.UpdateArtistPayoutTier;
+namespace CleanArchitecture.Application.Artists.Commands.UpdateArtistPayoutTier;
 
 public class UpdateArtistPayoutTierCommandValidator : AbstractValidator<UpdateArtistPayoutTierCommand>
 {

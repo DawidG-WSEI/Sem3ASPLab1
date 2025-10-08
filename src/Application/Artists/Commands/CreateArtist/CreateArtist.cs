@@ -1,13 +1,13 @@
-using CleanArchitectureProject.Application.Common.Interfaces;
-using CleanArchitectureProject.Domain.Entities;
-using CleanArchitectureProject.Domain.Events.ArtistEvents;
-using CleanArchitectureProject.Domain.Exceptions.Common;
-using CleanArchitectureProject.Domain.ValueObjects;
-using CleanArchitectureProject.Domain.Enums;
-using CleanArchitectureProject.Application.Common.Interfaces;
+using CleanArchitecture.Application.Common.Interfaces;
+using CleanArchitecture.Domain.Entities;
+using CleanArchitecture.Domain.Events.ArtistEvents;
+using CleanArchitecture.Domain.Exceptions.Common;
+using CleanArchitecture.Domain.ValueObjects;
+using CleanArchitecture.Domain.Enums;
+using CleanArchitecture.Application.Common.Interfaces;
 using MediatR;
 
-namespace CleanArchitectureProject.Application.Artists.Commands.CreateArtist;
+namespace CleanArchitecture.Application.Artists.Commands.CreateArtist;
 
 public record CreateArtistCommand : IRequest<int>
 {
