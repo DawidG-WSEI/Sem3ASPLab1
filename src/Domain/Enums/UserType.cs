@@ -1,4 +1,4 @@
-namespace CleanArchitectureProject.Domain.Enums;
+namespace CleanArchitecture.Domain.Enums;
 
 public enum UserType
 {

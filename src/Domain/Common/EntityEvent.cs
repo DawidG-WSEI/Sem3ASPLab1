@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace CleanArchitectureProject.Domain.Common;
+namespace CleanArchitecture.Domain.Common;
 
 /// <summary>
 /// Generic event for signaling changes on entities.

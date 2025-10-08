@@ -1,6 +1,6 @@
 using System;
 
-namespace CleanArchitectureProject.Domain.Exceptions.SongExceptions;
+namespace CleanArchitecture.Domain.Exceptions.SongExceptions;
 
 public class SongNotFoundException : Exception
 {

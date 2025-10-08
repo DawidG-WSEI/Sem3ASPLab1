@@ -1,6 +1,6 @@
 using System;
 
-namespace CleanArchitectureProject.Domain.Exceptions.Common;
+namespace CleanArchitecture.Domain.Exceptions.Common;
 
 public class InsufficientPermissionsException : Exception
 {

@@ -1,4 +1,4 @@
-﻿﻿namespace FCleanArchitectureProjectDomain.Constants;
+﻿﻿namespace CleanArchitecture.Domain.Constants;
 
 public static class Roles
 {

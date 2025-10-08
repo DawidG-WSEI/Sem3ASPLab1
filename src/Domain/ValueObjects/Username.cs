@@ -1,10 +1,10 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using CleanArchitectureProject.Domain.Common;
-using CleanArchitectureProject.Domain.Exceptions.Common;
+using CleanArchitecture.Domain.Common;
+using CleanArchitecture.Domain.Exceptions.Common;
 
-namespace CleanArchitectureProject.Domain.ValueObjects;
+namespace CleanArchitecture.Domain.ValueObjects;
 
 public sealed class Username : ValueObject
 {

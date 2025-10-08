@@ -1,7 +1,7 @@
-﻿﻿using FCleanArchitectureProjectDomain.Common;
-using CleanArchitectureProject.Domain.Entities;
+﻿﻿using CleanArchitecture.Domain.Common;
+using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitectureProject.Domain.Events.ListenerEvents;
+namespace CleanArchitecture.Domain.Events.ListenerEvents;
 
 public class ListenerCreatedEvent : EntityEvent<Listener>
 {

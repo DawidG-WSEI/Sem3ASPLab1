@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CleanArchitectureProject.Domain.Events.SongEvents;
+namespace CleanArchitecture.Domain.Events.SongEvents;
 
 public class SongPlayedEvent : BaseEvent
 {

@@ -1,6 +1,6 @@
-using CleanArchitectureProject.Domain.Enums;
+using CleanArchitecture.Domain.Enums;
 
-namespace CleanArchitectureProject.Domain.Exceptions.Common;
+namespace CleanArchitecture.Domain.Exceptions.Common;
 
 public class UserAlreadyExistsException : Exception
 {

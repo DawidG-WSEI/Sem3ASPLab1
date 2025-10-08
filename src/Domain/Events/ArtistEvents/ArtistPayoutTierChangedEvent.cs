@@ -1,8 +1,8 @@
-using CleanArchitectureProject.Domain.Common;
-using CleanArchitectureProject.Domain.Entities;
-using CleanArchitectureProject.Domain.ValueObjects;
+using CleanArchitecture.Domain.Common;
+using CleanArchitecture.Domain.Entities;
+using CleanArchitecture.Domain.ValueObjects;
 
-namespace CleanArchitectureProject.Domain.Events.ArtistEvents;
+namespace CleanArchitecture.Domain.Events.ArtistEvents;
 
 public class ArtistPayoutTierChangedEvent : BaseEvent
 {

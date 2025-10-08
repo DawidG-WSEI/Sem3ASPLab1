@@ -1,4 +1,4 @@
-﻿namespace CleanArchitectureProject.Domain.Constants;
+﻿namespace CleanArchitecture.Domain.Constants;
 
 public abstract class Policies
 {

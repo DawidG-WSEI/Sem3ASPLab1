@@ -1,7 +1,7 @@
-﻿using CleanArchitectureProject.Domain.Common;
-using CleanArchitectureProject.Domain.Entities;
+﻿using CleanArchitecture.Domain.Common;
+using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitectureProject.Domain.Events.ArtistEvents
+namespace CleanArchitecture.Domain.Events.ArtistEvents
 {
     public class ArtistDeletedEvent : EntityEvent<Artist>
     {

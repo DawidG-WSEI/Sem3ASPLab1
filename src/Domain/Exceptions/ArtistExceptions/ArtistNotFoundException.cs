@@ -1,6 +1,6 @@
 using System;
 
-namespace CleanArchitectureProject.Domain.Exceptions.ArtistExceptions;
+namespace CleanArchitecture.Domain.Exceptions.ArtistExceptions;
 
 public class ArtistNotFoundException : Exception
 {

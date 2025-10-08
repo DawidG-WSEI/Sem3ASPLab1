@@ -1,6 +1,6 @@
 using System;
 
-namespace CleanArchitectureProject.Domain.Exceptions.ListenerExceptions;
+namespace CleanArchitecture.Domain.Exceptions.ListenerExceptions;
 
 public class ListenerNotFoundException : Exception
 {

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CleanArchitectureProject.Domain.Events.ListenerEvents;
+namespace CleanArchitecture.Domain.Events.ListenerEvents;
 
 public class ListenerFavoritedSongEvent : BaseEvent
 {

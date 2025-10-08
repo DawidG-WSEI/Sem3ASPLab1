@@ -1,11 +1,11 @@
 using System;
 using System.Text.RegularExpressions;
 using System.Collections.Generic;
-using CleanArchitectureProject.Domain.Common;
-using CleanArchitectureProject.Domain.Exceptions.ArtistExceptions;
-using CleanArchitectureProject.Domain.Entities;
+using CleanArchitecture.Domain.Common;
+using CleanArchitecture.Domain.Exceptions.ArtistExceptions;
+using CleanArchitecture.Domain.Entities;
 
-namespace CleanArchitectureProject.Domain.ValueObjects;
+namespace CleanArchitecture.Domain.ValueObjects;
 
 public sealed class EmailAddress : ValueObject
 {

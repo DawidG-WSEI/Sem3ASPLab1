@@ -1,4 +1,4 @@
-﻿namespace CleanArchitectureProject.Domain.Entities;
+﻿namespace CleanArchitecture.Domain.Entities;
 
 public class Song : BaseAuditableEntity
 {

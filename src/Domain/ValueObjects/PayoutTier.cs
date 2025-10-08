@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using CleanArchitectureProject.Domain.Common;
+using CleanArchitecture.Domain.Common;
 
-namespace CleanArchitectureProject.Domain.ValueObjects;
+namespace CleanArchitecture.Domain.ValueObjects;
 
 public sealed class PayoutTier : ValueObject
 {

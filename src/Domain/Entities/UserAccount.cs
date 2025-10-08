@@ -1,6 +1,6 @@
-﻿using CleanArchitectureProject.Domain.ValueObjects;
+﻿using CleanArchitecture.Domain.ValueObjects;
 
-namespace CleanArchitectureProject.Domain.Entities;
+namespace CleanArchitecture.Domain.Entities;
 
 // Remains in Entities, as it's a DB entity, that's why i didn't move it to Common folder.
 public abstract class UserAccount : BaseEntity
