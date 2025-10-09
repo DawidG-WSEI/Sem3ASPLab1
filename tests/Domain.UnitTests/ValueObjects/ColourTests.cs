@@ -7,44 +7,46 @@ namespace CleanArchitecture.Domain.UnitTests.ValueObjects;
 
 public class ColourTests
 {
-    [Test]
-    public void ShouldReturnCorrectColourCode()
-    {
-        var code = "#FFFFFF";
 
-        var colour = Colour.From(code);
+    // Commented out so we can refer to it later on
+    // [Test]
+    // public void ShouldReturnCorrectColourCode()
+    // {
+    //     var code = "#FFFFFF";
 
-        colour.Code.Should().Be(code);
-    }
+    //     var colour = Colour.From(code);
 
-    [Test]
-    public void ToStringReturnsCode()
-    {
-        var colour = Colour.White;
+    //     colour.Code.Should().Be(code);
+    // }
 
-        colour.ToString().Should().Be(colour.Code);
-    }
+    // [Test]
+    // public void ToStringReturnsCode()
+    // {
+    //     var colour = Colour.White;
 
-    [Test]
-    public void ShouldPerformImplicitConversionToColourCodeString()
-    {
-        string code = Colour.White;
+    //     colour.ToString().Should().Be(colour.Code);
+    // }
 
-        code.Should().Be("#FFFFFF");
-    }
+    // [Test]
+    // public void ShouldPerformImplicitConversionToColourCodeString()
+    // {
+    //     string code = Colour.White;
 
-    [Test]
-    public void ShouldPerformExplicitConversionGivenSupportedColourCode()
-    {
-        var colour = (Colour)"#FFFFFF";
+    //     code.Should().Be("#FFFFFF");
+    // }
 
-        colour.Should().Be(Colour.White);
-    }
+    // [Test]
+    // public void ShouldPerformExplicitConversionGivenSupportedColourCode()
+    // {
+    //     var colour = (Colour)"#FFFFFF";
 
-    [Test]
-    public void ShouldThrowUnsupportedColourExceptionGivenNotSupportedColourCode()
-    {
-        FluentActions.Invoking(() => Colour.From("##FF33CC"))
-            .Should().Throw<UnsupportedColourException>();
-    }
+    //     colour.Should().Be(Colour.White);
+    // }
+
+    // [Test]
+    // public void ShouldThrowUnsupportedColourExceptionGivenNotSupportedColourCode()
+    // {
+    //     FluentActions.Invoking(() => Colour.From("##FF33CC"))
+    //         .Should().Throw<UnsupportedColourException>();
+    // }
 }

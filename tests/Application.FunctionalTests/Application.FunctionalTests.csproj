@@ -3,10 +3,11 @@
     <PropertyGroup>
         <RootNamespace>CleanArchitecture.Application.FunctionalTests</RootNamespace>
         <AssemblyName>CleanArchitecture.Application.FunctionalTests</AssemblyName>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="appsettings.json" />
+      <ProjectReference Include="..\..\src\Web\Web.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -26,18 +27,15 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="NUnit3TestAdapter" />
-        <PackageReference Include="coverlet.collector">
-          <PrivateAssets>all</PrivateAssets>
-          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
+        <PackageReference Include="coverlet.collector" />
         <PackageReference Include="FluentAssertions" />
         <PackageReference Include="Moq" />
         <PackageReference Include="Respawn" />
-        <PackageReference Include="Testcontainers.MsSql" />
     </ItemGroup>
-    
+
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Web\Web.csproj" />
+      <ProjectReference Include="..\..\src\Application\Application.csproj" />
+      <ProjectReference Include="..\..\src\Infrastructure\Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
