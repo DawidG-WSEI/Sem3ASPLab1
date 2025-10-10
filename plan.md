@@ -56,3 +56,6 @@
 - [ ] Integrate with REST API
 
 ---
+
+> Note: If you wan't to run curl tests do it in e.g. git bash or normal BASH powershell won't suffice, also you'll need jq installed i recommend using choco install jq for that. You can output it to curl_output.txt
+Besides that remember that there are operations that can't be made again! For it to work restart web server. [we're having in memory db so everything's flushed when we're restarting it 😏]

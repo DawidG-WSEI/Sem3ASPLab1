@@ -1,0 +1,155 @@
+Logged in as administrator@localhost
+---- ARTISTS: Get all (paginated) ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:07 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"items":[{"id":1,"name":"Test Artist","username":"testartist","bio":"A test artist.","payoutTier":"Bronze","email":"artist@example.com"}],"pageNumber":1,"totalPages":1,"totalCount":1,"hasPreviousPage":false,"hasNextPage":false}
+HTTP 200
+---- ARTISTS: Get by ID (assuming id=1) ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:07 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"id":1,"name":"Test Artist","username":"testartist","bio":"A test artist.","payoutTier":"Bronze","email":"artist@example.com"}
+HTTP 200
+---- ARTISTS: Get by name ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:07 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+[{"id":1,"name":"Test Artist","username":"testartist","bio":"A test artist.","payoutTier":"Bronze","email":"artist@example.com"}]
+HTTP 200
+---- ARTISTS: Create ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:07 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+2
+HTTP 200
+---- ARTISTS: Update (id=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:07 GMT
+Server: Kestrel
+
+
+HTTP 204
+---- ARTISTS: Update payout tier (id=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+
+
+HTTP 204
+---- ARTISTS: Delete (id=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+
+
+HTTP 204
+---- LISTENERS: Get all (paginated) ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"items":[{"id":1,"name":"Test Listener","username":"testlistener","email":"listener@example.com"}],"pageNumber":1,"totalPages":1,"totalCount":1,"hasPreviousPage":false,"hasNextPage":false}
+HTTP 200
+---- LISTENERS: Get by username ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"id":1,"name":"Test Listener","username":"testlistener","email":"listener@example.com"}
+HTTP 200
+---- LISTENERS: Create ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+2
+HTTP 200
+---- LISTENERS: Update (id=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+
+
+HTTP 204
+---- LISTENERS: Update favorite song (listenerId=1, songId=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+
+
+HTTP 204
+---- LISTENERS: Delete (id=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+
+
+HTTP 204
+---- SONGS: Get all (paginated) ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"items":[{"id":4,"title":"Fourth Song","artistId":1,"listenedTimes":10},{"id":2,"title":"Second Song","artistId":1,"listenedTimes":5},{"id":1,"title":"Test Song","artistId":1,"listenedTimes":0},{"id":3,"title":"Third Song","artistId":1,"listenedTimes":2}],"pageNumber":1,"totalPages":1,"totalCount":4,"hasPreviousPage":false,"hasNextPage":false}
+HTTP 200
+---- SONGS: Get by artist (seeded artistId=1) ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+{"items":[{"id":4,"title":"Fourth Song","artistId":1,"listenedTimes":10},{"id":2,"title":"Second Song","artistId":1,"listenedTimes":5},{"id":1,"title":"Test Song","artistId":1,"listenedTimes":0},{"id":3,"title":"Third Song","artistId":1,"listenedTimes":2}],"pageNumber":1,"totalPages":1,"totalCount":4,"hasPreviousPage":false,"hasNextPage":false}
+HTTP 200
+---- SONGS: Create (artistId=1) ----
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+Transfer-Encoding: chunked
+
+5
+HTTP 200
+---- SONGS: Update (id=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+
+
+HTTP 204
+---- SONGS: Play song (id=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+
+
+HTTP 204
+---- SONGS: Delete (id=1) ----
+HTTP/1.1 204 No Content
+Date: Fri, 10 Oct 2025 11:51:08 GMT
+Server: Kestrel
+
+
+HTTP 204
+DONE.

@@ -17,6 +17,8 @@ dotnet watch run
 
 Navigate to https://localhost:5001. The application will automatically reload if you change any of the source files.
 
+> Note: I've changed 5000; 5001 to 5001;5002 these are as it seems 2 alt ports, both pages and api are served on the same port bu ton different routes as it seems. To access API: `/api`; To access frontend dunno yet.  
+
 ## Code Styles & Formatting
 
 The template includes [EditorConfig](https://editorconfig.org/) support to help maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. The **.editorconfig** file defines the coding styles applicable to this solution.
@@ -24,6 +26,8 @@ The template includes [EditorConfig](https://editorconfig.org/) support to help 
 ## Code Scaffolding
 
 The template includes support to scaffold new commands and queries.
+
+> Note: It's quite important, it significantly reduces time to create new entities commands -> before been copying pasting Todo's and adjusting them to new entities ehh
 
 Start in the `.\src\Application\` folder.
 

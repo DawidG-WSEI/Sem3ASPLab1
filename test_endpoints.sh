@@ -21,7 +21,7 @@ login() {
     -H "Content-Type: application/json" \
     -d "{\"email\": \"$email\", \"password\": \"$pass\"}" | jq -r '.accessToken')
   if [[ "$TOKEN" == "null" || -z "$TOKEN" ]]; then
-    echo "Failed to login as $email"
+    echo "Failed to login as $email $pass"
     exit 1
   fi
   echo "Logged in as $email"
