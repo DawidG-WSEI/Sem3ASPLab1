@@ -210,5 +210,24 @@ public class ApplicationDbContextInitialiser
                 }
             }
         }
+
+        if (!_context.Playlists.Any())
+        {
+            var listener = _context.Listeners.Include(l => l.FavouriteSongs).FirstOrDefault();
+            var firstSong = _context.Songs.FirstOrDefault();
+            if (listener != null && firstSong != null)
+            {
+                var playlist = new Playlist
+                {
+                    Title = "Seeded Playlist",
+                    ListenerId = listener.Id,
+                    Created = DateTimeOffset.UtcNow,
+                    LastModified = DateTimeOffset.UtcNow
+                };
+                playlist.Songs.Add(firstSong);
+                _context.Playlists.Add(playlist);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

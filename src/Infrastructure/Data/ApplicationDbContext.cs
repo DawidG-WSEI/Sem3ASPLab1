@@ -13,6 +13,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
     public DbSet<Song> Songs => Set<Song>();
     public DbSet<Artist> Artists => Set<Artist>();
     public DbSet<Listener> Listeners => Set<Listener>();
+    public DbSet<Playlist> Playlists => Set<Playlist>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -38,5 +39,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
         builder.Entity<Listener>()
             .HasIndex(l => l.UserId)
             .IsUnique();
+
+        builder.Entity<Playlist>()
+            .HasMany(p => p.Songs)
+            .WithMany();
     }
 }
