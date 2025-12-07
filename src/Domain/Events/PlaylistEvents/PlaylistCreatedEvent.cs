@@ -7,8 +7,8 @@ using CleanArchitecture.Domain.Common;
 
 namespace CleanArchitecture.Domain.Events.PlaylistEvents;
 
-public class PlaylistCreatedEvent : EntityEvent<Entities.Playlist> 
+public class PlaylistCreatedEvent : EntityEvent<Playlist> 
 { 
-    public PlaylistCreatedEvent(Entities.Playlist playlist) : base(playlist, EntityEventType.Created) { } 
+    public PlaylistCreatedEvent(Playlist playlist) : base(playlist, EntityEventType.Created) { } 
 }
 

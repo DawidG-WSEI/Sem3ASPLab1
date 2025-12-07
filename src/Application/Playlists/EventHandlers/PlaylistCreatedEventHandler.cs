@@ -19,7 +19,7 @@ public class PlaylistCreatedEventHandler : INotificationHandler<PlaylistCreatedE
 
     public Task Handle(PlaylistCreatedEvent notification, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Playlist {PlaylistId} event: {EventType}", notification.EntityId, notification.EventType);
+        _logger.LogInformation("Playlist {PlaylistId} event: {EventType}", notification.Entity.Id, notification.EventType);
         return Task.CompletedTask;
     }
 }

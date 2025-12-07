@@ -2,6 +2,9 @@
 using CleanArchitecture.Application.Playlists.Commands.DeletePlaylist;
 using CleanArchitecture.Application.Playlists.Commands.UpdatePlaylist;
 using CleanArchitecture.Application.Playlists.Queries;
+using CleanArchitecture.Application.Playlists.Queries.GetPlaylistsWithPagination;
+using CleanArchitecture.Application.Playlists.Queries.GetPlaylistById;
+
 using CleanArchitecture.Application.Common.Models;
 using MediatR;
 

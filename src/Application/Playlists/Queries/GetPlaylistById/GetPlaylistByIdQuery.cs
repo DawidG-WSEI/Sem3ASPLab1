@@ -22,7 +22,7 @@ public class GetPlaylistByIdQueryHandler : IRequestHandler<GetPlaylistByIdQuery,
     {
         var entity = await _context.Playlists
             .Include(p => p.Songs)
-            .FindAsync(new object[] { request.Id }, cancellationToken);
+            .FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
 
         if (entity == null) return null;
 
